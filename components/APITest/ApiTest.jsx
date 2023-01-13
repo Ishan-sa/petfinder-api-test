@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default async function ApiTest() {
+export default function ApiTest() {
   const [pets, setPets] = useState(null);
 
   const api_key = process.env.API_KEY;
@@ -27,15 +27,13 @@ export default async function ApiTest() {
         params: params,
         method: "GET",
       });
-      setPets(result.data);
+      // setPets(result.data);
       console.log(result.data);
       // return result.data;
     } catch (e) {
       console.log(e.message);
     }
   };
-
-  console.log(data);
 
   useEffect(() => {
     getPets();
