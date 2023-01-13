@@ -11,21 +11,20 @@ export default function ApiTest() {
   const headers = {
     "Api-Key": api_key,
     "Api-Secret": api_secret,
+    "Content-Type": "application/x-www-form-urlencoded",
   };
 
   const params = {
     location: "zip_code",
     animal: "cat",
-    status: "adaptable",
+    status: "adoptable",
   };
 
   const getPets = async () => {
     try {
-      const result = await axios.get({
-        url: "https://api.petfinder.com/v2/animals",
+      const result = await axios.get("https://api.petfinder.com/v2/types", {
         headers: headers,
         params: params,
-        method: "GET",
       });
       // setPets(result.data);
       console.log(result.data);
